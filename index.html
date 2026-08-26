@@ -7,8 +7,8 @@
 <meta name="description" content="Pace doesn't matter, vibes do. A run and social club in Hyderabad.">
 
 <!-- Favicon -->
-<link rel="icon" type="image/jpeg" href="logo.jpg">
-<link rel="apple-touch-icon" href="logo.jpg">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 
 <!-- Link preview / social share image -->
 <meta property="og:title" content="the first mile club — Hyderabad">
@@ -190,41 +190,71 @@
     50%{ transform:scale(1.18); }
   }
 
+  .hero-logo-wrap{
+    position:relative;
+    margin-bottom:30px;
+    animation:float-logo 5s ease-in-out infinite;
+  }
+  @keyframes float-logo{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-10px); }
+  }
+  .hero-logo{
+    width:clamp(96px, 14vw, 150px);
+    height:clamp(96px, 14vw, 150px);
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid var(--paper);
+    outline:2px solid var(--lav-pale);
+    outline-offset:6px;
+    box-shadow:0 18px 40px rgba(75,62,150,0.22);
+    background:var(--paper);
+  }
+
   h1.hero-title{
     font-family:var(--f-display);
     font-weight:600;
-    font-size:clamp(3.4rem, 10vw, 8.6rem);
-    line-height:0.94;
+    font-size:clamp(3rem, 9vw, 7.4rem);
+    line-height:0.96;
     letter-spacing:-0.02em;
     margin:0;
     max-width:17ch;
   }
-  h1.hero-title .italic{
+  .hero-title-the{
+    display:block;
+    font-family:var(--f-mono);
+    font-weight:700;
+    font-size:clamp(0.85rem, 1.6vw, 1.05rem);
+    letter-spacing:0.16em;
+    text-transform:lowercase;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+
+  .hero-tagline{
+    font-family:var(--f-display);
     font-style:italic;
     font-weight:450;
+    font-size:clamp(1.2rem, 2.6vw, 1.7rem);
     color:var(--lav-deep);
+    margin:26px 0 0;
+  }
+  .hero-tagline .underline-scribble{
     position:relative;
     display:inline-block;
   }
-  h1.hero-title .underline-scribble svg{
-    position:absolute; left:-2%; right:-2%; bottom:-0.1em; width:104%; height:0.28em;
+  .hero-tagline .underline-scribble svg{
+    position:absolute; left:-2%; right:-2%; bottom:-0.14em; width:104%; height:0.24em;
   }
 
-  .hero-sub{
-    font-family:var(--f-mono);
-    font-size:clamp(0.85rem, 1.6vw, 1.02rem);
-    text-transform:uppercase;
-    letter-spacing:0.1em;
-    color:var(--ink-soft);
-    margin:34px 0 0;
-  }
   .hero-desc{
     font-family:var(--f-body);
-    font-size:clamp(1.05rem, 2vw, 1.25rem);
+    font-style:normal;
+    font-size:clamp(1.02rem, 1.9vw, 1.18rem);
     color:var(--ink-soft);
     max-width:38ch;
     line-height:1.55;
-    margin:20px 0 44px;
+    margin:22px 0 44px;
   }
 
   .hero-ctas{
@@ -586,11 +616,19 @@
       a run &amp; social club, hyderabad
     </div>
 
+    <div class="hero-logo-wrap">
+      <img src="logo.png" alt="The First Mile Club logo" class="hero-logo">
+    </div>
+
     <h1 class="hero-title">
-      Pace doesn't matter,<br><span class="underline-scribble italic">vibes<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 C 40 6, 80 20, 120 10 C 150 3, 175 15, 198 8" stroke="#FF7A54" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span> do.
+      <span class="hero-title-the">(the)</span>
+      first mile club
     </h1>
 
-    <p class="hero-sub">the first mile club — hyderabad</p>
+    <p class="hero-tagline">
+      <span class="underline-scribble">pace doesn't matter,<svg viewBox="0 0 320 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 C 60 6, 130 20, 200 10 C 240 3, 280 15, 318 8" stroke="#FF7A54" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span> vibes do.
+    </p>
+
     <p class="hero-desc">A run club and a social club, rolled into one. We meet up, run together, and hang around long after the run is done — because that's usually when the good part starts.</p>
 
     <div class="hero-ctas">
