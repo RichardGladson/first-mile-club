@@ -271,16 +271,26 @@
 
   /* ================= ABOUT ================= */
   .about{ background:var(--bg); }
-  .about-title-block{ max-width:20ch; }
+  .about-title-block .section-title{ max-width:18ch; }
+  .about-copy-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    margin-top:36px;
+  }
+  @media (max-width:760px){
+    .about-copy-grid{ grid-template-columns:1fr; gap:24px; }
+  }
   .about-line{
     font-family:var(--f-body);
-    font-size:clamp(1.15rem, 2.2vw, 1.4rem);
+    font-size:clamp(1.1rem, 1.7vw, 1.3rem);
     color:var(--ink-soft);
-    max-width:36ch;
-    line-height:1.5;
-    margin:32px 0 0;
+    max-width:42ch;
+    line-height:1.55;
+    margin:0;
   }
   .about-line strong{ color:var(--ink); font-weight:600; }
+  h2.section-title + .about-line{ margin-top:28px; }
 
   .about-pillars{
     display:grid; grid-template-columns:repeat(3,1fr);
@@ -510,8 +520,10 @@
 
     <div class="about-title-block">
       <h2 class="section-title">We run. <em>We connect.</em> We have fun.</h2>
-      <p class="about-line">A club for people who want a reason to move, and an easy way to meet people while doing it. Whether you run fast, run slow, or mostly walk and talk — you're one of us. <strong>All paces welcome, always.</strong></p>
-      <p class="about-line">The first mile is the hardest part of any run, and honestly, of most things. Meeting new people, trying something new, showing up alone for the first time — it's all a first mile. We just figured a running club is a pretty good place to get through it together.</p>
+      <div class="about-copy-grid">
+        <p class="about-line">A club for people who want a reason to move, and an easy way to meet people while doing it. Whether you run fast, run slow, or mostly walk and talk — you're one of us. <strong>All paces welcome, always.</strong></p>
+        <p class="about-line">The first mile is the hardest part of any run, and honestly, of most things. Meeting new people, trying something new, showing up alone for the first time — it's all a first mile. We just figured a running club is a pretty good place to get through it together.</p>
+      </div>
     </div>
 
     <div class="about-pillars">
