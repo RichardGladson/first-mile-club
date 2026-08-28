@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>the first mile club — Hyderabad</title>
+<title>The First Mile Club — Hyderabad</title>
 <meta name="description" content="Pace doesn't matter, vibes do. A run and social club in Hyderabad.">
 
 <!-- Favicon -->
-<link rel="icon" type="image/png" href="logo.png">
-<link rel="apple-touch-icon" href="logo.png">
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+<link rel="apple-touch-icon" href="logo.jpg">
 
 <!-- Link preview / social share image -->
-<meta property="og:title" content="the first mile club — Hyderabad">
+<meta property="og:title" content="The First Mile Club — Hyderabad">
 <meta property="og:description" content="Pace doesn't matter, vibes do.">
 <meta property="og:image" content="mainpic.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="the first mile club — Hyderabad">
+<meta name="twitter:title" content="The First Mile Club — Hyderabad">
 <meta name="twitter:description" content="Pace doesn't matter, vibes do.">
 <meta name="twitter:image" content="mainpic.jpg">
 
@@ -193,15 +193,38 @@
   .hero-logo-wrap{
     position:relative;
     margin-bottom:30px;
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
     animation:float-logo 5s ease-in-out infinite;
+  }
+  .hero-logo-wrap:hover{
+    animation-play-state:paused;
   }
   @keyframes float-logo{
     0%,100%{ transform:translateY(0); }
     50%{ transform:translateY(-10px); }
   }
+  .hero-logo-ring{
+    position:absolute;
+    top:50%; left:50%;
+    width:calc(100% + 34px);
+    height:calc(100% + 34px);
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    border:1.5px dashed var(--lav-pale);
+    opacity:0;
+    pointer-events:none;
+    animation:spin-ring 14s linear infinite;
+    transition:opacity 0.35s ease;
+  }
+  @keyframes spin-ring{
+    from{ transform:translate(-50%,-50%) rotate(0deg); }
+    to{ transform:translate(-50%,-50%) rotate(360deg); }
+  }
   .hero-logo{
-    width:clamp(96px, 14vw, 150px);
-    height:clamp(96px, 14vw, 150px);
+    width:clamp(150px, 20vw, 230px);
+    height:clamp(150px, 20vw, 230px);
     border-radius:50%;
     object-fit:cover;
     border:5px solid var(--paper);
@@ -209,6 +232,44 @@
     outline-offset:6px;
     box-shadow:0 18px 40px rgba(75,62,150,0.22);
     background:var(--paper);
+    transition:transform 0.4s cubic-bezier(.2,.8,.2,1), outline-color 0.4s ease, box-shadow 0.4s ease;
+    cursor:pointer;
+  }
+  .hero-logo-wrap:hover .hero-logo{
+    transform:scale(1.08) rotate(-3deg);
+    outline-color:var(--coral);
+    box-shadow:0 24px 50px rgba(255,122,84,0.3);
+  }
+  .hero-logo-wrap:hover .hero-logo-ring{
+    opacity:1;
+  }
+  .hero-logo-wrap:active .hero-logo{
+    transform:scale(1.02) rotate(-1deg);
+  }
+  .hero-logo-caption{
+    display:block;
+    text-align:center;
+    font-family:var(--f-mono);
+    font-weight:700;
+    font-size:clamp(0.8rem, 1.6vw, 0.95rem);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:20px;
+    transition:color 0.35s ease, letter-spacing 0.35s ease;
+  }
+  .hero-logo-wrap:hover .hero-logo-caption{
+    color:var(--lav-deep);
+    letter-spacing:0.14em;
+  }
+  .visually-hidden{
+    position:absolute !important;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
   }
 
   h1.hero-title{
@@ -447,6 +508,62 @@
   }
   .pillar p{ margin:0; color:var(--ink-soft); font-size:1rem; line-height:1.5; }
 
+  /* ================= FOUNDERS ================= */
+  .founders{ background:var(--paper); }
+  .founders-intro{ max-width:60ch; margin-top:24px; }
+  .founders-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+    margin-top:56px;
+  }
+  @media (max-width:760px){
+    .founders-grid{ grid-template-columns:1fr; gap:24px; }
+  }
+  .founder-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:28px;
+    padding:36px 32px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  .founder-photo{
+    width:150px; height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid var(--paper);
+    outline:2px solid var(--lav-pale);
+    outline-offset:5px;
+    margin-bottom:26px;
+    background:var(--bg-panel-2);
+  }
+  .founder-name{
+    font-family:var(--f-display);
+    font-weight:600;
+    font-size:1.5rem;
+    letter-spacing:-0.01em;
+    margin:0 0 6px;
+  }
+  .founder-role{
+    font-family:var(--f-mono);
+    font-size:0.74rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--lav-deep);
+    font-weight:700;
+    margin-bottom:16px;
+  }
+  .founder-bio{
+    font-family:var(--f-body);
+    font-size:1rem;
+    color:var(--ink-soft);
+    line-height:1.6;
+    max-width:34ch;
+  }
+
   /* ================= VIBES / WORDS ================= */
   .vibes{ background:var(--bg-panel); overflow:hidden; }
   .vibe-words{
@@ -587,14 +704,15 @@
     <a href="#top" class="brand">
       <span class="stamp">FMC</span>
       <span class="brand-text">
-        <span class="the">the</span>
-        <span class="main">first mile club</span>
+        <span class="the">The</span>
+        <span class="main">First Mile Club</span>
       </span>
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="#about">the club</a>
-      <a href="#vibes">the vibes</a>
-      <a href="#contact" class="nav-cta">say hi</a>
+      <a href="#about">The Club</a>
+      <a href="#founders">The Founders</a>
+      <a href="#vibes">The Vibes</a>
+      <a href="#contact" class="nav-cta">Get in Touch</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -613,32 +731,31 @@
   <div class="wrap hero-inner">
     <div class="eyebrow-badge">
       <span class="dot">👋</span>
-      a run &amp; social club, hyderabad
+      A Run &amp; Social Club, Hyderabad
     </div>
 
     <div class="hero-logo-wrap">
-      <img src="logo.png" alt="The First Mile Club logo" class="hero-logo">
+      <span class="hero-logo-ring" aria-hidden="true"></span>
+      <img src="logo.jpg" alt="The First Mile Club logo" class="hero-logo">
+      <span class="hero-logo-caption">First Mile Club</span>
     </div>
 
-    <h1 class="hero-title">
-      <span class="hero-title-the">(the)</span>
-      first mile club
-    </h1>
+    <h1 class="hero-title visually-hidden">The First Mile Club</h1>
 
     <p class="hero-tagline">
-      <span class="underline-scribble">pace doesn't matter,<svg viewBox="0 0 320 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 C 60 6, 130 20, 200 10 C 240 3, 280 15, 318 8" stroke="#FF7A54" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span> vibes do.
+      <span class="underline-scribble">Pace doesn't matter,<svg viewBox="0 0 320 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 C 60 6, 130 20, 200 10 C 240 3, 280 15, 318 8" stroke="#FF7A54" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span> vibes do.
     </p>
 
-    <p class="hero-desc">A run club and a social club, rolled into one. We meet up, run together, and hang around long after the run is done — because that's usually when the good part starts.</p>
+    <p class="hero-desc">A run club and a social club, brought together as one. We meet, we run, and we stay a while afterward — because that is usually where the best conversations happen.</p>
 
     <div class="hero-ctas">
       <a href="#about" class="btn btn-primary">
-        what's this about
+        Learn More
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a href="https://www.instagram.com/first_mileclub/" target="_blank" rel="noopener" class="btn btn-ghost">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
-        follow along
+        Follow Along
       </a>
     </div>
   </div>
@@ -650,11 +767,11 @@
     <img src="mainpic.jpg" alt="The first mile club, running together at dusk" class="mainpic-img" id="mainpicImg">
     <div class="mainpic-overlay"></div>
     <div class="mainpic-text">
-      <span class="mainpic-eyebrow">every week, hyderabad</span>
+      <span class="mainpic-eyebrow">Every Week, Hyderabad</span>
       <h2 class="mainpic-title">Pace doesn't matter.<br><em>Vibes do.</em></h2>
     </div>
-    <span class="mainpic-tag mainpic-tag-1">first mile</span>
-    <span class="mainpic-tag mainpic-tag-2">good company</span>
+    <span class="mainpic-tag mainpic-tag-1">First Mile</span>
+    <span class="mainpic-tag mainpic-tag-2">Good Company</span>
   </div>
 </section>
 
@@ -663,14 +780,14 @@
   <div class="wrap">
     <div class="waypoint">
       <span class="pin">01</span>
-      <span class="tag">the club</span>
+      <span class="tag">The Club</span>
     </div>
 
     <div class="about-title-block">
-      <h2 class="section-title">We run. <em>We connect.</em> We have fun.</h2>
+      <h2 class="section-title">We run. <em>We connect.</em> We enjoy the journey.</h2>
       <div class="about-copy-grid">
-        <p class="about-line">A club for people who want a reason to move, and an easy way to meet people while doing it. Whether you run fast, run slow, or mostly walk and talk — you're one of us. <strong>All paces welcome, always.</strong></p>
-        <p class="about-line">The first mile is the hardest part of any run, and honestly, of most things. Meeting new people, trying something new, showing up alone for the first time — it's all a first mile. We just figured a running club is a pretty good place to get through it together.</p>
+        <p class="about-line">We are a club for anyone who wants a reason to move and an easy way to meet new people while doing it. Whether you run fast, run slow, or mostly walk and talk, you are welcome here. <strong>All paces are welcome, always.</strong></p>
+        <p class="about-line">The first mile is often the hardest part of any run, and honestly, of most things worth doing. Meeting new people, trying something unfamiliar, showing up alone for the first time — these are all first miles of their own. We simply believe a running club is a good place to get through them together.</p>
       </div>
     </div>
 
@@ -680,21 +797,49 @@
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4a2 2 0 1 0-2 2 2 2 0 0 0 2-2z"/><path d="M6.5 20l1.5-6-2-1.5 1-4 3 1 2 2.5h3M9.5 14l-1 6M14 10.5l3 1.5-1 4.5"/></svg>
         </div>
         <h3>Run</h3>
-        <p>Get out, move your body, and feel that first-mile push turn into momentum.</p>
+        <p>Get outside, move your body, and feel that first-mile effort turn into momentum.</p>
       </div>
       <div class="pillar reveal">
         <div class="icon-badge">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <h3>Connect</h3>
-        <p>Meet people from all walks of life. No pressure, no pretense, no small talk that stays small.</p>
+        <p>Meet people from all walks of life, with no pressure and no small talk that stays small.</p>
       </div>
       <div class="pillar reveal">
         <div class="icon-badge">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5c4.5-2.5 8-6 8-10.5a5 5 0 0 0-9-3 5 5 0 0 0-9 3c0 4.5 3.5 8 8 8.5z"/><path d="M12 20.5v-4"/></svg>
         </div>
         <h3>Enjoy</h3>
-        <p>Exhilaration first. The fitness, the friendships, and everything else follow naturally.</p>
+        <p>We put enjoyment first. The fitness and the friendships follow naturally from there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOUNDERS ================= -->
+<section class="founders" id="founders">
+  <div class="wrap">
+    <div class="waypoint">
+      <span class="pin">02</span>
+      <span class="tag">The Founders</span>
+    </div>
+
+    <h2 class="section-title">Started by <em>two people,</em> one idea.</h2>
+    <p class="about-line founders-intro">Haasini and Manohar founded the First Mile Club as a new shared pursuit — a simple space where staying healthy and getting to know people happen at the same time.</p>
+
+    <div class="founders-grid">
+      <div class="founder-card reveal">
+        <img src="f1.png" alt="Haasini, co-founder of the First Mile Club" class="founder-photo">
+        <h3 class="founder-name">Haasini</h3>
+        <span class="founder-role">Co-founder</span>
+        
+      </div>
+      <div class="founder-card reveal">
+        <img src="f2.png" alt="Manohar, co-founder of the First Mile Club" class="founder-photo">
+        <h3 class="founder-name">Manohar</h3>
+        <span class="founder-role">Co-founder</span>
+        
       </div>
     </div>
   </div>
@@ -704,16 +849,16 @@
 <section class="vibes" id="vibes">
   <div class="wrap">
     <div class="waypoint">
-      <span class="pin">02</span>
-      <span class="tag">the vibes</span>
+      <span class="pin">03</span>
+      <span class="tag">The Vibes</span>
     </div>
     <h2 class="section-title">What it <em>feels</em> like.</h2>
-    <p class="about-line">Less finish-line intensity, more front-porch energy. This is what happens when running stops being a chore and starts being the highlight of your week.</p>
+    <p class="about-line">Less finish-line intensity, more front-porch warmth. This is what happens when running stops being a chore and becomes the highlight of your week.</p>
 
     <div class="vibe-words reveal">
-      <span class="vibe-word vw-1">slow days.</span>
-      <span class="vibe-word vw-2"><em>good</em> people.</span>
-      <span class="vibe-word vw-3">real energy.</span>
+      <span class="vibe-word vw-1">Slow days.</span>
+      <span class="vibe-word vw-2"><em>Good</em> people.</span>
+      <span class="vibe-word vw-3">Real energy.</span>
     </div>
   </div>
 </section>
@@ -723,9 +868,9 @@
   <div class="join reveal">
     <div class="join-inner">
       <h2>Come find <em>your people.</em></h2>
-      <p class="join-desc">No sign-up forms, no fitness test at the door, no need to already know someone. Just show up, run at your own pace, and stick around for the part that actually matters.</p>
+      <p class="join-desc">No sign-up forms, no fitness test at the door, and no need to already know someone. Simply show up, run at your own pace, and stay for the part that matters most.</p>
       <a href="https://www.instagram.com/first_mileclub/" target="_blank" rel="noopener" class="btn btn-primary">
-        follow on instagram
+        Follow on Instagram
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -736,11 +881,11 @@
 <footer id="contact">
   <div class="wrap">
     <div class="waypoint">
-      <span class="pin">03</span>
-      <span class="tag">find us</span>
+      <span class="pin">04</span>
+      <span class="tag">Find Us</span>
     </div>
-    <h2 class="section-title contact-title">Say hi.</h2>
-    <p class="about-line">Every run, every meetup, and every update lives on our Instagram. That's the best place to find us and see what's next.</p>
+    <h2 class="section-title contact-title">Say Hello.</h2>
+    <p class="about-line">Every run, every meetup, and every update lives on our Instagram. It is the best place to find us and see what is next.</p>
 
     <a class="contact-row reveal" href="https://www.instagram.com/first_mileclub/" target="_blank" rel="noopener">
       <div class="contact-left">
@@ -755,14 +900,14 @@
       <span class="arrow">↗</span>
     </a>
 
-    <p class="footer-note">Based in Hyderabad. Open to anyone who wants to run, walk, or just be around good people.</p>
+    <p class="footer-note">Based in Hyderabad. Open to anyone who wants to run, walk, or simply be around good people.</p>
 
     <div class="footer-bottom">
       <span class="fm-mark">
         <span class="stamp" style="width:26px;height:26px;font-size:0.5rem;">FMC</span>
-        the first mile club, hyderabad
+        The First Mile Club, Hyderabad
       </span>
-      <span>pace doesn't matter, vibes do</span>
+      <span>Pace doesn't matter, vibes do.</span>
     </div>
   </div>
 </footer>
