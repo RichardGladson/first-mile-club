@@ -563,6 +563,29 @@
     line-height:1.6;
     max-width:34ch;
   }
+  .founder-ig{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:18px;
+    padding:9px 18px 9px 12px;
+    background:var(--paper);
+    border:1.5px solid var(--line-strong);
+    border-radius:100px;
+    font-family:var(--f-body);
+    font-weight:600;
+    font-size:0.92rem;
+    color:var(--ink);
+    transition:transform 0.22s cubic-bezier(.2,.8,.2,1), box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    box-shadow:0 2px 0 var(--line-strong);
+  }
+  .founder-ig svg{ width:18px; height:18px; flex-shrink:0; }
+  .founder-ig .ig-glyph-bg{ fill:url(#igGradient); }
+  .founder-ig:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 0 var(--line-strong);
+    border-color:var(--lav-pale);
+    background:var(--bg-panel-2);
+  }
+  .founder-ig:active{ transform:translateY(1px); box-shadow:0 1px 0 var(--line-strong); }
 
   /* ================= VIBES / WORDS ================= */
   .vibes{ background:var(--bg-panel); overflow:hidden; }
@@ -828,18 +851,46 @@
     <h2 class="section-title">Started by <em>two people,</em> one idea.</h2>
     <p class="about-line founders-intro">Haasini and Manohar founded the First Mile Club as a new shared pursuit — a simple space where staying healthy and getting to know people happen at the same time.</p>
 
+    <!-- Shared gradient def for Instagram glyph, used once, referenced by both cards -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="igGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#FFC861"/>
+          <stop offset="30%" stop-color="#FF7A54"/>
+          <stop offset="60%" stop-color="#D62E7A"/>
+          <stop offset="100%" stop-color="#6C5CC4"/>
+        </linearGradient>
+      </defs>
+    </svg>
+
     <div class="founders-grid">
       <div class="founder-card reveal">
         <img src="f1.png" alt="Haasini, co-founder of the First Mile Club" class="founder-photo">
         <h3 class="founder-name">Haasini</h3>
         <span class="founder-role">Co-founder</span>
-        
+        <a class="founder-ig" href="https://www.instagram.com/hasuuuuuu_1809/" target="_blank" rel="noopener" aria-label="Haasini on Instagram, @hasuuuuuu_1809">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="21" height="21" rx="6" class="ig-glyph-bg"/>
+            <rect x="1.5" y="1.5" width="21" height="21" rx="6" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+            <circle cx="12" cy="12" r="5.1" fill="none" stroke="#fff" stroke-width="1.8"/>
+            <circle cx="17.6" cy="6.4" r="1.25" fill="#fff"/>
+          </svg>
+          @hasuuuuuu_1809
+        </a>
       </div>
       <div class="founder-card reveal">
         <img src="f2.png" alt="Manohar, co-founder of the First Mile Club" class="founder-photo">
         <h3 class="founder-name">Manohar</h3>
         <span class="founder-role">Co-founder</span>
-        
+        <a class="founder-ig" href="https://www.instagram.com/manohar.yaram/" target="_blank" rel="noopener" aria-label="Manohar on Instagram, @manohar.yaram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="21" height="21" rx="6" class="ig-glyph-bg"/>
+            <rect x="1.5" y="1.5" width="21" height="21" rx="6" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+            <circle cx="12" cy="12" r="5.1" fill="none" stroke="#fff" stroke-width="1.8"/>
+            <circle cx="17.6" cy="6.4" r="1.25" fill="#fff"/>
+          </svg>
+          @manohar.yaram
+        </a>
       </div>
     </div>
   </div>
